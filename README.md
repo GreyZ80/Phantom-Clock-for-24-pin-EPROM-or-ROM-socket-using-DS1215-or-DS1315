@@ -4,8 +4,8 @@ This Private (for the time being) repo is used for all information regarding the
 Also here are the executables for the Model II that sets and reads the clock chip.
 As most TRS-80 use a 24 pin socket, that is the slot selected. Changes to support a larger chip (28 pin) can be made when needed.
 
-Important: When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, or from RAM memory not masked by the ROM. When using BigTMon, the code must be copies to RAM.
-When running TRS-DOS, the setting and reading of the time is handled by a little utility program (written in assembler).
+Important: When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, or from RAM memory not masked by the ROM. When using BigTMon, the code must be copies to RAM. Note that when BigTMon is copied to RAM, the ROM of the Model II cannot be accessed.
+When running TRS-DOS the setting and reading of the time is handled by a little utility program (written in assembler).
 
 Pinning of the DS1315
 
