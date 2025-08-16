@@ -6,7 +6,8 @@ As most TRS-80 use a 24 pin socket, that is the slot selected. Changes to suppor
 
 Schematic for the little board
 
-<img width="400" src="https://github.com/user-attachments/assets/2ac6771c-76b5-4684-9cc3-4cd6801a9ad1" />
+<img width="507" height="484" alt="image" src="https://github.com/user-attachments/assets/044b9230-0a7e-49fb-bd8d-86c81261e481" />
+
 
 Data line used (Q) connects to en verder ....
 
