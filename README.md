@@ -4,7 +4,18 @@ This **Private** (for the time being) repo is used for all information regarding
 Also here are the executables for the Model II that sets and reads the clock chip.
 As most TRS-80 use a 24 pin socket, that is the slot selected. Changes to support a larger chip (28 pin) can be made when needed.
 
-Important: When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, or from RAM memory not masked by the ROM. When using BigTMon, the code must be copies to RAM. Note that when BigTMon is copied to RAM, the ROM of the Model II cannot be accessed.
+The DS1315 is the chip that is used in the DS1216E Smart Watch DIP socket.\
+
+******************
+This means that the software for the Smart Watch can also be used for this board. **Duane M. Saylor** wrote software for Model 1, 3 and 4(P).\
+ CLK1    -  For Model I under LDOS 5.x.x
+ CLK3    -  For Model III, Model 4 and 4P under LDOS 5.x.x
+ CLK4    -  For Model 4 and 4P under TRSDOS 6.x and LS-DOS 6.x
+
+******************
+
+
+Important: When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, or from RAM memory not masked by the ROM. When using BigTMon, the code is copied to RAM and executed. A TSR is used to update the time in the status line (HH:MM) 
 When running TRS-DOS the setting and reading of the time is handled by a little utility program (written in assembler).
 
 Pinning of the DS1315
@@ -51,14 +62,17 @@ Parts needed:
 - 2x  12 pin male row header with thin (0.4 mm) pins
 
 Optional
-- 1x  24 pin machined socket for (E)EPROM
-- 1x  16 pin machined socket for DS13125
+- 1x  24 pin machined or low profile socket for (E)EPROM
+- 1x  16 pin machined or low profile socket for DS13125
 - 1x  2 pin angled row header for connection of the battery
 - 1x  2 pin angled row header for A11 maniipulation when using a 32Kb EPROM.
   
 ### PCB Assembly
 First placed on the assembly are the two row headers. They are inserted from the **solder** side of the board. After placing them they are grinded flat on the top side.\
-when height of the assembly is an issue (which it is in a model II), you have to solder the EPROM directly on the board. Note that the EPROM can stil be programmed when it is fixed to the board. For looks you can decide to use an EEPROM instead of a UV eraseable. Note that 32Kbit (4Kx8) EEPROMs do not exists.
+When height of the assembly is an issue (which it is in a model II), you have to solder the EPROM directly on the board. Note that the EPROM can stil be programmed when it is fixed to the board. For looks you can decide to use an EEPROM instead of a UV eraseable. Note that 32Kbit (4Kx8) EEPROMs do not exists. When testing the EPROM on the board without the DS1315 mounted, pins 10 and 11 of the DS1315 position need to be bridged.
+When you decide to use a socket for the DS1315, the crystal can be mounted on the component side within the socket, under the chip./
+When soldering the DS1315 directly to the board, the crystal has to be placed on the underside of the board **before** you solder the DS1315 in place. Use some hot glue to fixate the crystal.
+
 ### Software
 
 The essence of the design is a 'magic' string that opens a hole in the memory map to access the chip.
@@ -66,4 +80,4 @@ The essence of the design is a 'magic' string that opens a hole in the memory ma
 
 <img width="836" alt="image" src="https://github.com/user-attachments/assets/e6079cd3-2ed4-4b55-bd4b-0e451379a583" />
 
-cccc
+This is implemented in the 
