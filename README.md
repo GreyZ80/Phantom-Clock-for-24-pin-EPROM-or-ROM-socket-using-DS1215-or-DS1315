@@ -4,13 +4,13 @@ This **Private** (for the time being) repo is used for all information regarding
 Also here are the executables for the Model II that sets and reads the clock chip.
 As most TRS-80 use a 24 pin socket, that is the slot selected. Changes to support a larger chip (28 pin) can be made when needed.
 
-The DS1315 is the chip that is used in the DS1216E Smart Watch DIP socket.\
+The DS1315 is the chip that is used in the DS1216E Smart Watch DIP socket.
 
 ******************
-This means that the software for the Smart Watch can also be used for this board. **Duane M. Saylor** wrote software for Model 1, 3 and 4(P).\
- CLK1    -  For Model I under LDOS 5.x.x
- CLK3    -  For Model III, Model 4 and 4P under LDOS 5.x.x
- CLK4    -  For Model 4 and 4P under TRSDOS 6.x and LS-DOS 6.x
+This means that the software for the Smart Watch can also be used for this board. **Duane M. Saylor** wrote software for Model 1, 3 and 4(P).
+- CLK1    -  For Model I under LDOS 5.x.x
+- CLK3    -  For Model III, Model 4 and 4P under LDOS 5.x.x
+- CLK4    -  For Model 4 and 4P under TRSDOS 6.x and LS-DOS 6.x
 
 ******************
 
@@ -29,7 +29,7 @@ Pinning of the DS1315
 
 <img width="507" height="484" alt="image" src="https://github.com/user-attachments/assets/044b9230-0a7e-49fb-bd8d-86c81261e481" />
 
-The datasheet of the DS1315 shows a design for a RAM and a ROM configuration. The latter is used. The design uses only 1 backup (type battery CR2032).\
+The datasheet of the DS1315 shows a design for a RAM and a ROM configuration. The latter is used. The design uses only 1 backup battery (type CR2032).\
 Data line used (Q) connects to A0. This signal is used for writing data.\
 Data line (D) is connected to D0. This signal is used while reading data.\
 The board is layed out for a 24 Pin (E)PROM.
@@ -39,7 +39,11 @@ Suported (E)PROMs:
 - 2732  (4Kx8) used for custom software (like BigTMon)
 - MCM76866  (8Kx8) can be used with modifications to the CPU board. (Not tested)
 
+J4 in the schematic brings out A11 of the EPROM. This is only needed when a 4K EPROM is used in the Model II (because otherwise only the upper part of the 4K is accessable.)
+
 ### PCB
+**New design: Use CAT28C16A and DS1315 in SOIC package, then all will fit in 24 pin socket footprint ??**
+
 The PCB uses two pin header rows to connect to the original 24 pin socket for the EPROM. The pins of these are slightly thinner to fir the socket and have a slightly broader base. In order to minimise height, I used larger hole for the pins which allow the base to fall inside of the PCB board. Within Kicad a modification to the footprint is made. Pad diameter 2.3mm, hole diameter 1.9mm.\
 The crystal for the clock can be placed on the top side (inside of the clock chip socket), or on the backside. The first option is preferred, but pay attention to the socket bridges. So verify before soldering.\
 An angled header is used for connection of the back-up battery. Direct soldering of two wires can be done as well.\
@@ -52,20 +56,20 @@ Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default
 ### BOM (2K or 4K)
 The board only supports a 24 pin (E)PROM.
 Default ROM size for the Big Tandy machines is 2Kbyte. However, they do support 4Kbyte.
-When you want to use the Phantom Clock in a standard machine, with the default content of the Boot ROM, best choice is a 2Kbyte EEPROM.
+When you want to use the Phantom Clock in a standard machine with default content of the Boot ROM, best choice is a 2Kbyte EEPROM.
 
 Parts needed:
-- 1x  16Kb EEPROM (24 pin). e.g. 28C16
+- 1x  16Kb EEPROM (24 pin). e.g. CAT28C16A in PDIP 24 package)
 - 1x  DS1315 Clock IC
 - 1x  32.768 MHz crystal (small footprint)
-- 1x  CR2032 Battery cell with 2 wire
+- 1x  CR2032 battery cell (3.2V) with 2 wires
 - 2x  12 pin male row header with thin (0.4 mm) pins
 
-Optional
+Optional parts:
 - 1x  24 pin machined or low profile socket for (E)EPROM
 - 1x  16 pin machined or low profile socket for DS13125
 - 1x  2 pin angled row header for connection of the battery
-- 1x  2 pin angled row header for A11 maniipulation when using a 32Kb EPROM.
+- 1x  2 pin short pin row header for J4, to enable A11 manipulation when using a 32Kb EPROM.
   
 ### PCB Assembly
 First placed on the assembly are the two row headers. They are inserted from the **solder** side of the board. After placing them they are grinded flat on the top side.\
