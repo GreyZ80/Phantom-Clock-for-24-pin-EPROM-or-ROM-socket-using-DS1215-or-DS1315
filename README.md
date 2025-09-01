@@ -73,7 +73,7 @@ Optional parts:
   
 ### PCB Assembly
 First placed on the assembly are the two row headers. They are inserted from the **solder** side of the board. After placing them they are grinded flat on the top side.\
-When height of the assembly is an issue (which it is in a model II), you have to solder the EPROM directly on the board. Note that the EPROM can stil be programmed when it is fixed to the board. For looks you can decide to use an EEPROM instead of a UV eraseable. Note that 32Kbit (4Kx8) EEPROMs do not exists. When testing the EPROM on the board without the DS1315 mounted, pins 10 and 11 of the DS1315 position need to be bridged.
+When height of the assembly is an issue (which it is in a model II), you have to solder the EPROM directly on the board. Note that the EPROM can stil be programmed when it is fixed to the board. For looks you can decide to use an EEPROM instead of a UV eraseable. Note that 32Kbit (4Kx8) EEPROMs do not exists. When testing the EPROM on the board without the DS1315 mounted, pins 10 (CEO*) and 11 (CEI*) of the DS1315 position need to be bridged.
 When you decide to use a socket for the DS1315, the crystal can be mounted on the component side within the socket, under the chip./
 When soldering the DS1315 directly to the board, the crystal has to be placed on the underside of the board **before** you solder the DS1315 in place. Use some hot glue to fixate the crystal.
 
