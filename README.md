@@ -44,9 +44,9 @@ J4 in the schematic brings out A11 of the EPROM. This is only needed when a 4K E
 ### PCB
 **New design: Use CAT28C16A and DS1315 in SOIC package, then all will fit in 24 pin socket footprint ??**
 
-The PCB uses two pin header rows to connect to the original 24 pin socket for the EPROM. The pins of these are slightly thinner to fir the socket and have a slightly broader base. In order to minimise height, I used larger hole for the pins which allow the base to fall inside of the PCB board. Within Kicad a modification to the footprint is made. Pad diameter 2.3mm, hole diameter 1.9mm.\
+The PCB uses two pin header rows to connect to the original 24 pin socket for the EPROM. The pins of these are slightly thinner to fit the socket and have a slightly broader base. In order to minimise height, I used larger hole for the pins which allow the base to fall inside of the PCB board. Within Kicad a modification to the footprint is made. Pad diameter 2.3mm, hole diameter 1.9mm.\
 The crystal for the clock can be placed on the top side (inside of the clock chip socket), or on the backside. The first option is preferred, but pay attention to the socket bridges. So verify before soldering.\
-An angled header is used for connection of the back-up battery. Direct soldering of two wires can be done as well.\
+An angled header is used for connection of the back-up battery. Of course direct soldering of two wires to the board can be done as well.\
 Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default the 2 pins of the jumper are connected by a bridge. When using a 2732 break the bridge and connect pin 1 to a wire running to the select (external A11 source) for the upper 16K address space of the Eprom.
 
 <img width="550"  alt="Phantom 3D" src="https://github.com/user-attachments/assets/2a1b5b65-4790-4255-b56e-8ebb8b457758" />
@@ -54,9 +54,10 @@ Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default
 <img width="550"  alt="Phantom Back Side" src="https://github.com/user-attachments/assets/514450f6-2465-4959-bed1-836496d30079" />
 
 ### BOM (2K or 4K)
-The board only supports a 24 pin (E)PROM.
+The board only supports a 24 pin (E)PROM or ROM.
 Default ROM size for the Big Tandy machines is 2Kbyte. However, they do support 4Kbyte.
 When you want to use the Phantom Clock in a standard machine with default content of the Boot ROM, best choice is a 2Kbyte EEPROM.
+You can use a 24 pin socket for the EPROM/ROM when there is enough room above the board where the module will be inserted insted of the original ROM. If you cannot create free space above the board, you will have to solder the memory chip directly to the Clock board. Is is not advisable to solder the original ROM on the Clock board. Better is to replace it with an (E)PROM. That chip needs to be programmed with the content of the original ROM. 
 
 Parts needed:
 - 1x  16Kb EEPROM (24 pin). e.g. CAT28C16A in PDIP 24 package)
@@ -66,13 +67,13 @@ Parts needed:
 - 2x  12 pin male row header with thin (0.4 mm) pins
 
 Optional parts:
-- 1x  24 pin machined or low profile socket for (E)EPROM
+- 1x  24 pin machined or low profile socket for (E)EPROM or (original) ROM
 - 1x  16 pin machined or low profile socket for DS13125
 - 1x  2 pin angled row header for connection of the battery
 - 1x  2 pin short pin row header for J4, to enable A11 manipulation when using a 32Kb EPROM.
   
 ### PCB Assembly
-First placed on the assembly are the two row headers. They are inserted from the **solder** side of the board. After placing them they are grinded flat on the top side.\
+First placed on the assembly are the two row headers. They are inserted from the **solder** side of the board. Before placing them cut of (almost) all of the thicker pin. This will result in a flat top surface.\
 When height of the assembly is an issue (which it is in a model II), you have to solder the EPROM directly on the board. Note that the EPROM can stil be programmed when it is fixed to the board. For looks you can decide to use an EEPROM instead of a UV eraseable. Note that 32Kbit (4Kx8) EEPROMs do not exists. When testing the EPROM on the board without the DS1315 mounted, pins 10 (CEO*) and 11 (CEI*) of the DS1315 position need to be bridged.
 When you decide to use a socket for the DS1315, the crystal can be mounted on the component side within the socket, under the chip./
 When soldering the DS1315 directly to the board, the crystal has to be placed on the underside of the board **before** you solder the DS1315 in place. Use some hot glue to fixate the crystal.
