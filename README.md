@@ -30,7 +30,9 @@ For model 4(P) see here:
 
 For general info look here: [Smart Watch for TRS-80](http://www.trs-80.org/the-smartwatch.html)
 
-Important: When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, or from RAM memory not masked by the ROM or just execute as a CMD file. The program added for the Model II is intended to be used under LS-DOS 6.3.\
+
+>[!important]
+>When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, or from RAM memory not masked by the ROM or just execute as a CMD file. The program added for the Model II is intended to be used under LS-DOS 6.3.\
 
 
 <img width="368" height="286" alt="image" src="https://github.com/user-attachments/assets/37fd1c71-3e51-4567-8ecf-328b5c2be5e4" />         
@@ -38,7 +40,7 @@ Important: When setting or reading the clock, the content of the ROM can **not**
 <img width="421" height="387" alt="image" src="https://github.com/user-attachments/assets/fb987184-a35f-4b93-ae12-4404649a7b51" />
 
 
-### Schematic for the board
+### Schematic for the ROM configuration
 
 <img width="507" height="484" alt="image" src="https://github.com/user-attachments/assets/044b9230-0a7e-49fb-bd8d-86c81261e481" />
 
@@ -49,8 +51,9 @@ The board is layed out for a 24 Pin (E)PROM.
 
 Supported (E)PROMs:
 - 2316  (2Kx8) ROM, default for standard Big Tandy with the original Boot ROM
-- 2716  (2Kx8) used for copies of Boot ROM
-- 2732  (4Kx8) used for custom software (like BigTMon)
+- 2716  (2Kx8) EPROM for copies of Boot ROM
+- 28C16 (2Kx8) EEPROM for copies of Boot ROM
+- 2732  (4Kx8) used for custom software (like BigTMon) that needs more space
 - MCM76866  (8Kx8) can be used with modifications to the CPU board. (Not tested)
 
 J4 in the schematic brings out A11 of the EPROM. This is only needed when a 4K EPROM is used in the Model II (because otherwise only the upper part of the 4K is accessable.)
