@@ -6,14 +6,17 @@ This **Private** (for the time being) repo is used for all information regarding
 When using BigTMon, the code is copied to RAM and executed. A TSR is used to update the time in the status line (HH:MM).\
 When running TRS-DOS the setting and reading of the time is handled by a little utility program (written in assembler).\
 New design: Use CAT28C16A and DS1315 in SOIC package, then all will fit in 24 pin socket footprint.
-***********************************
+***
+<img width="600" alt="Finished board" src="https://github.com/user-attachments/assets/abb936c1-b146-49c4-b076-ee6254830841" />
+
+***
 
 This is a description of the little 3x3 cm board that I designed for my Model II. Also here is the executable for the Model II that sets and reads the clock chip.
 As most TRS-80 computer use at least one 24 pin socket I decided to use a 24 pin socket. A larger socket (28 pin) is beyond the scope of this project.\
 The board creates the possibility to combine a DS1315 with the existing boot ROM.\
 The DS1315 is the chip that is used in the DS1216E Smart Watch DIP socket.
 
-******************
+***
 This means that the software for the Smart Watch can also be used for this board. **Duane M. Saylor** wrote software for Model 1, 3 and 4(P).
 - CLK1    -  For Model I under LDOS 5.x.x
 - CLK3    -  For Model III, Model 4 and 4P under LDOS 5.x.x
@@ -26,7 +29,7 @@ For model 3 see here:
 For model 4(P) see here: 
 [Smartwatch sw for model 4(P)](https://www.planetemu.net/index.php?section=roms&action=showrom&datSlug=tandy-radio-shack-trs-80-model-4&romSlug=smart-watch-19xx-dwayne-saylor-cmd&)
 
-******************
+***
 
 For general info look here: [Smart Watch for TRS-80](http://www.trs-80.org/the-smartwatch.html)
 
@@ -61,19 +64,26 @@ J4 in the schematic brings out A11 of the EPROM. This is only needed when a 4K E
 ### PCB
 
 The PCB uses two pin header rows to connect to the original 24 pin socket for the EPROM. The pins of these are slightly thinner to fit the socket and have a slightly broader base. In order to minimise height, I used larger hole for the pins which allow the base to fall inside of the PCB board. Within Kicad a modification to the footprint is made. Pad diameter 2.3mm, hole diameter 1.9mm.\
-The crystal for the clock can be placed on the top side (inside of the clock chip socket), or on the backside. The first option is preferred, but pay attention to the socket bridges. So verify before soldering.\
-An angled header is used for connection of the back-up battery. Of course direct soldering of two wires to the board can be done as well.\
+When soldering the header, fixate them using a 24 pin machined socket.
+
+<img width="100"  alt="Pin modification" src="https://github.com/user-attachments/assets/30f198d3-6715-4644-84d4-9cf801729044" />
+<img width="175"  alt="Pin fixation" src="https://github.com/user-attachments/assets/b7c87914-1e98-40cb-a534-51978a20e64f" />
+<img width="93"  alt="Pin fixation" src="https://github.com/user-attachments/assets/463aeb7d-7145-4c7a-88f9-c80884135d60" />
+
+The crystal for the clock can be placed on the top side (inside of the clock chip socket), or on the backside. This is preferred, but pay attention to the socket bridges. Verify before soldering.
+
+An angled header is used for connection of the back-up battery. Of course direct soldering of two wires to the board can be done as well. Two wires (red and black) are soldered to the battery, after which it is encapsuled in a hear shrink.\
 Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default the 2 pins of the jumper are connected by a bridge. When using a 2732 break the bridge and connect pin 1 to a wire running to the select (external A11 source) for the upper 16K address space of the Eprom.
 
-<img width="550"  alt="Phantom 3D" src="https://github.com/user-attachments/assets/2a1b5b65-4790-4255-b56e-8ebb8b457758" />
-<img width="550"  alt="Phantom Front Side" src="https://github.com/user-attachments/assets/e43e138a-83f8-4dc2-a2c7-56bdc72916e0" />
-<img width="550"  alt="Phantom Back Side" src="https://github.com/user-attachments/assets/514450f6-2465-4959-bed1-836496d30079" />
+<img width="500"  alt="Phantom 3D" src="https://github.com/user-attachments/assets/2a1b5b65-4790-4255-b56e-8ebb8b457758" />
+<img width="500"  alt="Phantom Front Side" src="https://github.com/user-attachments/assets/e43e138a-83f8-4dc2-a2c7-56bdc72916e0" />
+<img width="500"  alt="Phantom Back Side" src="https://github.com/user-attachments/assets/514450f6-2465-4959-bed1-836496d30079" />
 
 ### BOM (2K or 4K)
 The board only supports a 24 pin (E)PROM or ROM.
 Default ROM size for the Big Tandy machines is 2Kbyte. However, they do support 4Kbyte.
-When you want to use the Phantom Clock in a standard machine with default content of the Boot ROM, best choice is a 2Kbyte EEPROM.
-You can use a 24 pin socket for the EPROM/ROM when there is enough room above the board where the module will be inserted insted of the original ROM. If you cannot create free space above the board, you will have to solder the memory chip directly to the Clock board. Is is not advisable to solder the original ROM on the Clock board. Better is to replace it with an (E)PROM. That chip needs to be programmed with the content of the original ROM. 
+When you want to use the Phantom Clock in a standard machine with default content of the Boot ROM, best option is a 2Kbyte EEPROM.
+You can use a 24 pin socket for the EPROM/ROM when there is enough room above the board where the module will be inserted insted of the original ROM. If you cannot create free space above the board, you will have to solder the memory chip directly to the Clock board. Is is not advisable to solder the original ROM on the Clock board. Preferred is to replace it with an (E)PROM. That chip then needs to be programmed with the content of the original ROM. 
 
 Parts needed:
 - 1x  16Kb EEPROM (24 pin). e.g. CAT28C16A in PDIP 24 package)
