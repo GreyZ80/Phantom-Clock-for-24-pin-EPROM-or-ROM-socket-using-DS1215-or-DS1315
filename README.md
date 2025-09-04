@@ -1,9 +1,16 @@
 # Phantom clock for the TRS-80 Model II (and others)
 
-This **Private** (for the time being) repo is used for all information regarding the Dallas DS1315 chip.
-Also here are the executables for the Model II that sets and reads the clock chip.
-As most TRS-80 use a 24 pin socket, that is the slot selected. Changes to support a larger chip (28 pin) can be made when needed.
+************************************
+**To be removed**\
+This **Private** (for the time being) repo is used for all information regarding the Dallas DS1315 chip.\
+When using BigTMon, the code is copied to RAM and executed. A TSR is used to update the time in the status line (HH:MM).\
+When running TRS-DOS the setting and reading of the time is handled by a little utility program (written in assembler).\
+New design: Use CAT28C16A and DS1315 in SOIC package, then all will fit in 24 pin socket footprint.
+***********************************
 
+This is a description of the little 3x3 cm board that I designed for my Model II. Also here is the executable for the Model II that sets and reads the clock chip.
+As most TRS-80 computer use at least one 24 pin socket I decided to use a 24 pin socket. A larger socket (28 pin) is beyond the scope of this project.\
+The board creates the possibility to combine a DS1315 with the existing boot ROM.\
 The DS1315 is the chip that is used in the DS1216E Smart Watch DIP socket.
 
 ******************
@@ -12,20 +19,26 @@ This means that the software for the Smart Watch can also be used for this board
 - CLK3    -  For Model III, Model 4 and 4P under LDOS 5.x.x
 - CLK4    -  For Model 4 and 4P under TRSDOS 6.x and LS-DOS 6.x
 
+For model 1 see here:
+[Smartwatch sw for model 1](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
+For model 3 see here:
+[Smartwatch sw for model 3](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
+For model 4(P) see here: 
+[Smartwatch sw for model 4(P)](https://www.planetemu.net/index.php?section=roms&action=showrom&datSlug=tandy-radio-shack-trs-80-model-4&romSlug=smart-watch-19xx-dwayne-saylor-cmd&)
+
 ******************
 
+For general info look here: [Smart Watch for TRS-80](http://www.trs-80.org/the-smartwatch.html)
 
-Important: When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, or from RAM memory not masked by the ROM. When using BigTMon, the code is copied to RAM and executed. A TSR is used to update the time in the status line (HH:MM) 
-When running TRS-DOS the setting and reading of the time is handled by a little utility program (written in assembler).
+Important: When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, or from RAM memory not masked by the ROM or just execute as a CMD file. The program added for the Model II is intended to be used under LS-DOS 6.3.\
 
-Pinning of the DS1315
 
 <img width="368" height="286" alt="image" src="https://github.com/user-attachments/assets/37fd1c71-3e51-4567-8ecf-328b5c2be5e4" />         
 
 <img width="421" height="387" alt="image" src="https://github.com/user-attachments/assets/fb987184-a35f-4b93-ae12-4404649a7b51" />
 
 
-### Schematic for the little board
+### Schematic for the board
 
 <img width="507" height="484" alt="image" src="https://github.com/user-attachments/assets/044b9230-0a7e-49fb-bd8d-86c81261e481" />
 
@@ -34,15 +47,15 @@ Data line used (Q) connects to A0. This signal is used for writing data.\
 Data line (D) is connected to D0. This signal is used while reading data.\
 The board is layed out for a 24 Pin (E)PROM.
 
-Suported (E)PROMs:
-- 2716  (2Kx8) default for standard Big Tandy with the original Boot ROM
+Supported (E)PROMs:
+- 2316  (2Kx8) ROM, default for standard Big Tandy with the original Boot ROM
+- 2716  (2Kx8) used for copies of Boot ROM
 - 2732  (4Kx8) used for custom software (like BigTMon)
 - MCM76866  (8Kx8) can be used with modifications to the CPU board. (Not tested)
 
 J4 in the schematic brings out A11 of the EPROM. This is only needed when a 4K EPROM is used in the Model II (because otherwise only the upper part of the 4K is accessable.)
 
 ### PCB
-**New design: Use CAT28C16A and DS1315 in SOIC package, then all will fit in 24 pin socket footprint ??**
 
 The PCB uses two pin header rows to connect to the original 24 pin socket for the EPROM. The pins of these are slightly thinner to fit the socket and have a slightly broader base. In order to minimise height, I used larger hole for the pins which allow the base to fall inside of the PCB board. Within Kicad a modification to the footprint is made. Pad diameter 2.3mm, hole diameter 1.9mm.\
 The crystal for the clock can be placed on the top side (inside of the clock chip socket), or on the backside. The first option is preferred, but pay attention to the socket bridges. So verify before soldering.\
