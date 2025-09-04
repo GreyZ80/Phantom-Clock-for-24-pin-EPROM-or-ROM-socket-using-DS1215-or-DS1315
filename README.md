@@ -75,9 +75,9 @@ The crystal for the clock can be placed on the top side (inside of the clock chi
 An angled header is used for connection of the back-up battery. Of course direct soldering of two wires to the board can be done as well. Two wires (red and black) are soldered to the battery, after which it is encapsuled in a hear shrink.\
 Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default the 2 pins of the jumper are connected by a bridge. When using a 2732 break the bridge and connect pin 1 to a wire running to the select (external A11 source) for the upper 16K address space of the Eprom.
 
-<img width="500"  alt="Phantom 3D" src="https://github.com/user-attachments/assets/2a1b5b65-4790-4255-b56e-8ebb8b457758" />
-<img width="500"  alt="Phantom Front Side" src="https://github.com/user-attachments/assets/e43e138a-83f8-4dc2-a2c7-56bdc72916e0" />
-<img width="500"  alt="Phantom Back Side" src="https://github.com/user-attachments/assets/514450f6-2465-4959-bed1-836496d30079" />
+<img width="300"  alt="Phantom 3D" src="https://github.com/user-attachments/assets/2a1b5b65-4790-4255-b56e-8ebb8b457758" />
+<img width="300"  alt="Phantom Front Side" src="https://github.com/user-attachments/assets/e43e138a-83f8-4dc2-a2c7-56bdc72916e0" />
+<img width="300"  alt="Phantom Back Side" src="https://github.com/user-attachments/assets/514450f6-2465-4959-bed1-836496d30079" />
 
 ### BOM (2K or 4K)
 The board only supports a 24 pin (E)PROM or ROM.
@@ -99,10 +99,25 @@ Optional parts:
 - 1x  2 pin short pin row header for J4, to enable A11 manipulation when using a 32Kb EPROM.
   
 ### PCB Assembly
-First placed on the assembly are the two row headers. They are inserted from the **solder** side of the board. Before placing them cut of (almost) all of the thicker pin. This will result in a flat top surface.\
+First placed on the assembly are the two row headers. They are inserted from the **solder** side of the board. Before placing them cut of (almost) all of the thicker pin. This will result in a flat top surface. Solder them from the top side of the board.\
 When height of the assembly is an issue (which it is in a model II), you have to solder the EPROM directly on the board. Note that the EPROM can stil be programmed when it is fixed to the board. For looks you can decide to use an EEPROM instead of a UV eraseable. Note that 32Kbit (4Kx8) EEPROMs do not exists. When testing the EPROM on the board without the DS1315 mounted, pins 10 (CEO*) and 11 (CEI*) of the DS1315 position need to be bridged.
-When you decide to use a socket for the DS1315, the crystal can be mounted on the component side within the socket, under the chip./
-When soldering the DS1315 directly to the board, the crystal has to be placed on the underside of the board **before** you solder the DS1315 in place. Use some hot glue to fixate the crystal.
+If you decide to use a socket for the DS1315, the crystal can be mounted on the component side within the socket, under the chip./
+When soldering the DS1315 directly to the board, the crystal has to be placed on the underside of the board **before** you solder the DS1315 in place. Use some hot glue to fixate the crystal.\
+Mount the parts in the following order:
+- 2x row headers
+- 24 pin socket (or 24 pin EEPROM)
+- Crystal
+- 16 pin socket
+  - Now the board can be tested for correct operation of the ROM.
+  - Place wire between pin 10 and pin 11 of the 16 pin socket
+  - Place the board in the Model II
+  - Power on the machine
+  - It should boot normally.
+  - If not check for proper orientation and seating. Check for solder problems.
+- When this work continue by placing the connector for the battery
+- Place the DS1315
+- Connect the battery
+- Test the complete assembly
 
 ### Software
 
@@ -111,4 +126,25 @@ The essence of the design is a 'magic' string that opens a hole in the memory ma
 
 <img width="836" alt="image" src="https://github.com/user-attachments/assets/e6079cd3-2ed4-4b55-bd4b-0e451379a583" />
 
-This is implemented in the 
+This is implemented in the CLK4/CMD program. CLK4/CMD can check for existance of the clock. It can set time, date and day of the clock. And it can copy time and date from the clock to the sytem.
+Furthermore the oscillator of the clock can be stopped, which saves battery power consumption.
+
+### Copy file to image file for use with Gotek
+
+Using the TRS80GP emulator, the CLK4/CMD faile can be copied to an .hfe image file.
+- Copy the CLK4.CMD file the folder where trs80gp is stored
+- create a USB stick with LS-DOS system image file in .hfe format.
+- Start the emulator in Model II model with frehd and hx options: trs80gp -m2 -frehd -hx
+- load the LS-DOS system disk image in drive :0.
+- Load the LS-DOS util disk image in drive :1. This disk contains the IMPORT2/CMD program
+- Type: Import2 clk4.cmd clk4/cmd
+- The file will be copied to the LS-DOS system disk.
+- Type DIR to verify
+- Close the emulator. This will update the LS-DOS system disk image file.
+- Now take the USB stick and insert it in the Gotek.
+- Boot your M2 and check the directory of 0: for CLK4/CMD
+- Type CLK4 S 1234000901251 to set the time and date of the clock
+- type CLK4 to verify.
+- turn power off for the Model II. The clock will now keep its time using the battery
+- After 5 minutes, power on the computer
+- Check time in the chip by typing CLK4. The time should be valid and have advanced by 5 minutes
