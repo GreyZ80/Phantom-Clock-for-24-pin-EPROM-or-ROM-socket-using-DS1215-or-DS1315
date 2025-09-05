@@ -128,20 +128,34 @@ Mount the parts in the following order:
 When using a socket for the ROM, the height become very critical. You might decide to move all boards one position to the left.\
 <img width="600" alt="ROM position" src="https://github.com/user-attachments/assets/e5640073-c3a8-4e83-add9-e6b49d775eda" />
 
-
 Steps to perform:
-- Disconnect the reset line and the flat cable for the serial ports.
+- Disconnect the reset line and the flat cable for the serial ports
 - Remove the bracket that holds the boards in place
 - Remove the CPU board (the rightmost board when looking from the backside) from the Model II
 - Place the board on an ESD safe surface
 - With an IC puller or a small flat blade screwdriver carefully pry IC **U11** (the ROM which has 24 pins) loose from the socket. Be very carefull and apply minimal force
 - Put the IC in aluminum foil until later use
 - Make sure there is no battery connected to the board
-- Position the Clock PCB above the socket (red line in the above drawing). Check the orientation; The DS1315 must be on the inside of the board (toward U19)
-  Make sure all pins are aligned
-- <img width="200" alt="ROM position" src="https://github.com/user-attachments/assets/b84c0e3c-9432-4e2a-9507-bbf9766cd408" /> <BR>
+- Position the Clock PCB above the socket (red line in the above drawing). Check the orientation; The DS1315 must be on the inside of the board (toward U19). Make sure all pins are aligned.
+
+<img width="200" alt="ROM position" src="https://github.com/user-attachments/assets/b84c0e3c-9432-4e2a-9507-bbf9766cd408" /> <BR>
 - Now gentle push the board down. The board should remain level.
 - Check if a piece of paper can move freely between the board and U19.
+- Connect the battery. Pay attention to the plus and minus connections.
+- Place the CPU board back in the Model II. Do not yet connect the reset and serial ports flat cable.
+
+When the board is correctly seated, a first power test can be done. Without floppy mounted, the system should show the "Insert floppy" screen. When the system does not boot or shows a distorted boot screen, power down and check you work.\
+
+- Power down the computer and connect the flat cable and reset cable.
+- Place the bracket that holds the boards in place.
+- Make the LS-DOS 6.3 floppy available for boot (real floppy or Gotek).
+- Power on the system. The system should boot into LS-DOS.
+- Use CLK2 to check if the SmartWatch can be found by the software
+- When everything is correct the message ** The SmartWatch is not set ** should be given.
+- Use CLK2 S hhmmssmmddyyw to set the time, date and weekday. No error should be given.
+- Then use CLK2 T to copy time and date from the clock to the system. Now TIME and DATE should respond with the previously set values.
+- When all correct, power down the computer and close the cabinet.
+
 The picture shows a close up of a board mounted that has the EEPROM solderen to the board, and has the DS1315 in a socket.
 Top view gives the impression that the board might create a short circuit with U19. That is not the case. You can insert a piece of paper without any trouble.
 
