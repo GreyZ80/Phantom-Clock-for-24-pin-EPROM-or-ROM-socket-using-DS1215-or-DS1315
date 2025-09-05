@@ -77,6 +77,8 @@ An angled header is used for connection of the back-up battery. Of course direct
 Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default the 2 pins of the jumper are connected by a bridge. When using a 2732 break the bridge and connect pin 1 to a wire running to the select (external A11 source) for the upper 16K address space of the Eprom.
 
 <img width="300"  alt="Phantom 3D" src="https://github.com/user-attachments/assets/2a1b5b65-4790-4255-b56e-8ebb8b457758" />
+<img width="300" src="https://github.com/user-attachments/assets/534c5de8-7063-4cd5-b5f0-20063a6e1d45" />
+
 <img width="263"  alt="Phantom Front Side" src="https://github.com/user-attachments/assets/e43e138a-83f8-4dc2-a2c7-56bdc72916e0" />
 <img width="263"  alt="Phantom Back Side" src="https://github.com/user-attachments/assets/514450f6-2465-4959-bed1-836496d30079" />
 
