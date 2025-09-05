@@ -139,9 +139,9 @@ Steps to perform:
 - Make sure there is no battery connected to the board
 - Position the Clock PCB above the socket (red line in the above drawing). Check the orientation; The DS1315 must be on the inside of the board (toward U19)
   Make sure all pins are aligned
+- <img width="200" alt="ROM position" src="https://github.com/user-attachments/assets/b84c0e3c-9432-4e2a-9507-bbf9766cd408" /> <BR>
 - Now gentle push the board down. The board should remain level.
-- <img width="200" alt="ROM position" src="https://github.com/user-attachments/assets/b84c0e3c-9432-4e2a-9507-bbf9766cd408" />
-- Check if a piece of paper 
+- Check if a piece of paper can move freely between the board and U19.
 The picture shows a close up of a board mounted that has the EEPROM solderen to the board, and has the DS1315 in a socket.
 Top view gives the impression that the board might create a short circuit with U19. That is not the case. You can insert a piece of paper without any trouble.
 
