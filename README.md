@@ -6,7 +6,7 @@ This **Private** (for the time being) repo is used for all information regarding
 When using BigTMon, the code is copied to RAM and executed. A TSR is used to update the time in the status line (HH:MM).\
 When running TRS-DOS the setting and reading of the time is handled by a little utility program (written in assembler).\
 New design: Use CAT28C16A and DS1315 in SOIC package, then all will fit in 24 pin socket footprint.\
-Next design: use ground plane! Larger font! Graphic on the front!
+Next design: use ground plane! Larger font! Graphic on the front! Made the J4 bridge bare metal.
 ***
 <img width="600" alt="Finished board" src="https://github.com/user-attachments/assets/abb936c1-b146-49c4-b076-ee6254830841" />
 
@@ -19,11 +19,12 @@ The DS1315 is the chip that is used in the DS1216 Smart Watch DIP sockets. Buy t
 The broken DS1315 resulted in a partially garbled boot screen, which is the same as when no chip is mounted on the little board.
 
 ***
-This means that the software for the Smart Watch can also be used for this board. **Duane M. Saylor** wrote software for Model 1, 3 and 4(P).
+This means that the software for the Smart Watch can also be used for this board. Duane M. Saylor wrote software for Model 1, 3 and 4(P). They can be found via these links (September 2025).
 - CLK1    -  For Model I under LDOS 5.x.x
 - CLK3    -  For Model III, Model 4 and 4P under LDOS 5.x.x
 - CLK4    -  For Model 4 and 4P under TRSDOS 6.x and LS-DOS 6.x
 
+They can be found via the links below (September 2025).\
 For model 1 see here:
 [Smart Watch sw for model 1](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
 For model 3 see here:
@@ -37,7 +38,7 @@ For general info look here: [Smart Watch for TRS-80](http://www.trs-80.org/the-s
 
 
 >[!important]
->When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, or from RAM memory not masked by the ROM or just execute as a CMD file. The program added for the Model II is intended to be used under LS-DOS 6.3.
+>When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, from RAM memory not masked by the ROM or just executed as a CMD file. The program added for the Model II is intended to be used under LS-DOS 6.3.
 
 
 <img width="368" height="286" alt="image" src="https://github.com/user-attachments/assets/37fd1c71-3e51-4567-8ecf-328b5c2be5e4" />         
@@ -45,11 +46,12 @@ For general info look here: [Smart Watch for TRS-80](http://www.trs-80.org/the-s
 <img width="421" height="387" alt="image" src="https://github.com/user-attachments/assets/fb987184-a35f-4b93-ae12-4404649a7b51" />
 
 
+***
 ### Schematic for the ROM configuration
 
 <img width="507" height="484" alt="image" src="https://github.com/user-attachments/assets/044b9230-0a7e-49fb-bd8d-86c81261e481" />
 
-The datasheet of the DS1315 shows a design for a RAM and a ROM configuration. The latter is used. The design uses only 1 backup battery (type CR2032).\
+The datasheet of the DS1315 shows a design for a RAM and a ROM configuration. The latter is used. My design uses only 1 backup battery (type CR2032).\
 Data line used (Q) connects to A0. This signal is used for writing data.\
 Data line (D) is connected to D0. This signal is used while reading data.\
 The board is layed out for a 24 Pin (E)PROM.
@@ -59,22 +61,23 @@ Supported (E)PROMs:
 - 2716  (2Kx8) EPROM for copies of Boot ROM
 - 28C16 (2Kx8) EEPROM for copies of Boot ROM
 - 2732  (4Kx8) used for custom software (like BigTMon) that needs more space
-- MCM76866  (8Kx8) can be used with modifications to the CPU board. (Not tested)
+- MCM76866  (8Kx8) can be used with modifications to the CPU board (Not tested)
 
 J4 in the schematic brings out A11 of the EPROM. This is only needed when a 4K EPROM is used in the Model II (because otherwise only the upper part of the 4K is accessable.)
 
+***
 ### PCB
 
 The PCB uses two pin header rows to connect to the original 24 pin socket for the EPROM. The pins of these are slightly thinner to fit the socket and have a slightly broader base. In order to minimise height, I used larger hole for the pins which allow the base to fall inside of the PCB board. Within Kicad a modification to the footprint is made. Pad diameter 2.3mm, hole diameter 1.9mm.\
-When soldering the header, fixate them using a 24 pin machined socket.
+When soldering the header, fixate them using a breadbord or a 24 pin machined socket.
 
 <img width="100"  alt="Pin modification" src="https://github.com/user-attachments/assets/30f198d3-6715-4644-84d4-9cf801729044" />
 <img width="175"  alt="Pin fixation" src="https://github.com/user-attachments/assets/b7c87914-1e98-40cb-a534-51978a20e64f" />
 <img width="93"  alt="Pin fixation" src="https://github.com/user-attachments/assets/463aeb7d-7145-4c7a-88f9-c80884135d60" />
 
-The crystal for the clock can be placed on the top side (inside of the clock chip socket), or on the backside. This is preferred, but pay attention to the socket bridges. Verify before soldering.
+The crystal for the clock can be placed on the top side (inside of the clock chip socket), or on the backside. The top side is preferred, but pay attention to the socket bridges. Verify before soldering.
 
-An angled header is used for connection of the back-up battery. Of course direct soldering of two wires to the board can be done as well. Two wires (red and black) are soldered to the battery, after which it is encapsuled in a hear shrink.\
+An angled header is used for connection of the back-up battery. Of course direct soldering of two wires to the board can be done as well. Two wires (red and black) are soldered to the battery, after which it is encapsuled in a heat shrink.\
 Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default the 2 pins of the jumper are connected by a bridge. When using a 2732 break the bridge and connect pin 1 to a wire running to the select (external A11 source) for the upper 16K address space of the Eprom.
 
 <xximg width="300"  alt="Phantom 3D" src="https://github.com/user-attachments/assets/2a1b5b65-4790-4255-b56e-8ebb8b457758" />
@@ -102,10 +105,11 @@ Optional parts:
 - 1x  16 pin machined or low profile socket for DS13125
 - 1x  2 pin angled row header for connection of the battery
 - 1x  2 pin short pin row header for J4, to enable A11 manipulation when using a 32Kb EPROM.
-  
+
+***
 ### PCB Assembly
-First placed on the assembly are the two row headers. They are inserted from the **solder** side of the board. Before placing them cut of (almost) all of the thicker pin. This will result in a flat top surface. Solder them from the top side of the board.\
-When height of the assembly is an issue (which it is in a model II), you have to solder the EPROM directly on the board. Note that the EPROM can stil be programmed when it is fixed to the board. For looks you can decide to use an EEPROM instead of a UV eraseable. Note that 32Kbit (4Kx8) EEPROMs do not exists. When testing the EPROM on the board without the DS1315 mounted, pins 10 (CEO*) and 11 (CEI*) of the DS1315 position need to be bridged.
+First place the two row headers. They are inserted from the **solder** side of the board. Before placing them cut of (almost) all of the thicker pin. This will result in a flat top surface of the board. Solder them from the top side of the board.\
+When height of the assembly is an issue (which it is in a model II), you have to solder the EPROM directly on the board. Note that the EPROM can stil be programmed when it is fixed to the board. For looks you can decide to use an EEPROM instead of a UV eraseable. Note that 32Kbit (4Kx8) EEPROMs do not exist. When testing the EPROM on the board without the DS1315 mounted, pins 10 (CEO*) and 11 (CEI*) of the DS1315 socket need to be bridged.
 If you decide to use a socket for the DS1315, the crystal can be mounted on the component side within the socket, under the chip./
 When soldering the DS1315 directly to the board, the crystal has to be placed on the underside of the board **before** you solder the DS1315 in place. Use some hot glue to fixate the crystal.\
 Mount the parts in the following order:
@@ -122,7 +126,7 @@ Mount the parts in the following order:
 - When this works continue by placing the connector for the battery
 - Remove the wire and place the DS1315
 
-
+***
 ### Placing the clock in the Model II
 
 When using a socket for the ROM, the height become very critical. You might decide to move all boards one position to the left.\
@@ -133,10 +137,10 @@ Steps to perform:
 - Remove the bracket that holds the boards in place
 - Remove the CPU board (the rightmost board when looking from the backside) from the Model II
 - Place the board on an ESD safe surface
-- With an IC puller or a small flat blade screwdriver carefully pry IC **U11** (the ROM which has 24 pins) loose from the socket. Be very carefull and apply minimal force
-- Put the IC in aluminum foil until later use
-- Make sure there is no battery connected to the board
-- Position the Clock PCB above the socket (red line in the above drawing). Check the orientation; The DS1315 must be on the inside of the board (toward U19). Make sure all pins are aligned.
+- With an IC puller or a small flat blade screwdriver carefully pry IC **U11** (the ROM which has 24 pins) loose from the socket. Be very carefull, work slow and apply minimal force
+- Put the ROM in aluminum foil until later use
+- Make sure the battery is not connected to the board
+- Position the Clock board above the socket (red line in the above drawing). Check the orientation; The DS1315 must be on the inside of the board (toward U19). Make sure all pins are aligned.
 
 <img width="200" alt="ROM position" src="https://github.com/user-attachments/assets/b84c0e3c-9432-4e2a-9507-bbf9766cd408" /> <BR>
 - Now gentle push the board down. The board should remain level.
@@ -144,7 +148,7 @@ Steps to perform:
 - Connect the battery. Pay attention to the plus and minus connections.
 - Place the CPU board back in the Model II. Do not yet connect the reset and serial ports flat cable.
 
-When the board is correctly seated, a first power test can be done. Without floppy mounted, the system should show the "Insert floppy" screen. When the system does not boot or shows a distorted boot screen, power down and check you work.\
+When the board is correctly seated, a first power test can be done. Without floppy mounted, the system should show the "Insert floppy" screen. When the system does not boot or shows a distorted boot screen, power down and check your work.\
 
 - Power down the computer and connect the flat cable and reset cable.
 - Place the bracket that holds the boards in place.
@@ -159,17 +163,19 @@ When the board is correctly seated, a first power test can be done. Without flop
 The picture shows a close up of a board mounted that has the EEPROM solderen to the board, and has the DS1315 in a socket.
 Top view gives the impression that the board might create a short circuit with U19. That is not the case. You can insert a piece of paper without any trouble.
 
+***
 ### Software
 
 The essence of the design is a 'magic' string that opens a hole in the memory map to access the chip. This is done by reading the memory location where the chip is "hidden" 64 times.
-Doing this gives access to the 8 data registes for ready and writing the time/date parameters. Register 4 also contains the reset and Oscillator on/off functions.
+Doing this gives access to the 8 data registers for ready and writing the time/date parameters. Register 4 also contains the reset and Oscillator ON/OFF functions.
 
 <img width="533" height="743" alt="image" src="https://github.com/user-attachments/assets/a76a7050-919c-47e3-b37d-2e4ab82cce89" />
 <img width="450" height="883" alt="image" src="https://github.com/user-attachments/assets/a02c45de-2d7b-4350-a423-e0fda4b3dabc" />
 
-All this is implemented in the CLK4/CMD program. CLK4/CMD can check for existance of the clock. It can set time, date and day of the clock. And it can copy time and date from the clock to the sytem.
-Furthermore the oscillator of the clock can be stopped, which saves battery power consumption.
+All this is implemented in the CLK4/CMD program. CLK4/CMD can check for existance of the clock. It can set time, date and weekday of the clock. And it can copy time and date from the clock to the sytem.
+Furthermore the oscillator of the clock can be stopped, which saves battery power consumption. This also stops the clock.
 
+***
 ### Copy file to image file for use with Gotek
 
 Using the TRS80GP emulator, the CLK4/CMD faile can be copied to an .hfe image file.
@@ -189,3 +195,5 @@ Using the TRS80GP emulator, the CLK4/CMD faile can be copied to an .hfe image fi
 - turn power off for the Model II. The clock will now keep its time using the battery
 - After 5 minutes, power on the computer
 - Check time in the chip by typing CLK4. The time should be valid and have advanced by 5 minutes
+
+***
