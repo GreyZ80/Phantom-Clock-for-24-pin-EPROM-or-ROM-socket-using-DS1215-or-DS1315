@@ -15,7 +15,7 @@ This is a description of the little 3x3 cm board that I designed for my Model II
 As most TRS-80 computer use at least one 24 pin socket I decided to use a 24 pin socket. A larger socket (28 pin) is beyond the scope of this project.\
 The board creates the possibility to combine a DS1315 with the existing boot ROM.\
 The DS1315 is the chip that is used in the DS1216 Smart Watch DIP sockets. Buy the DS1315 chip from a trusted source. Or accept the risk of a "no-good" chip. After testing 15 chips, I found 1 that did not work.\
-The broken DS1315 resulted in or in a partially garbled boot screen, which is the same as when no chip is mounted.
+The broken DS1315 resulted in a partially garbled boot screen, which is the same as when no chip is mounted on the little board.
 
 ***
 This means that the software for the Smart Watch can also be used for this board. **Duane M. Saylor** wrote software for Model 1, 3 and 4(P).
