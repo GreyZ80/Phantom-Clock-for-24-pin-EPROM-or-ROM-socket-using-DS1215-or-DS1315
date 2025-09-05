@@ -113,15 +113,14 @@ Mount the parts in the following order:
 - Crystal
 - 16 pin socket
   - Now the board can be tested for correct operation of the ROM.
-  - **Place wire between pin 10 and pin 11 of the 16 pin socket**clk2 s 1621000905255
-  - Place the board in the Model II
+  - **Place wire between pin 10 and pin 11 of the 16 pin socket**
+  - Place the board in the Model II (placing the board in the Model II)
   - Power on the machine
   - It should boot normally.
-  - If not check for proper orientation and seating. Check for solder problems.
-- When this work continue by placing the connector for the battery
-- Place the DS1315
-- Connect the battery
-- Test the complete assembly
+  - If not check, for proper orientation and seating. Check for solder problems.
+- When this works continue by placing the connector for the battery
+- Remove the wire and place the DS1315
+
 
 ### Placing the clock in the Model II
 
