@@ -14,7 +14,7 @@ New design: Use CAT28C16A and DS1315 in SOIC package, then all will fit in 24 pi
 This is a description of the little 3x3 cm board that I designed for my Model II. Also here is the executable for the Model II that sets and reads the clock chip.
 As most TRS-80 computer use at least one 24 pin socket I decided to use a 24 pin socket. A larger socket (28 pin) is beyond the scope of this project.\
 The board creates the possibility to combine a DS1315 with the existing boot ROM.\
-The DS1315 is the chip that is used in the DS1216 Smart Watch DIP socket.
+The DS1315 is the chip that is used in the DS1216 Smart Watch DIP sockets.
 
 ***
 This means that the software for the Smart Watch can also be used for this board. **Duane M. Saylor** wrote software for Model 1, 3 and 4(P).
@@ -121,12 +121,13 @@ Mount the parts in the following order:
 
 ### Software
 
-The essence of the design is a 'magic' string that opens a hole in the memory map to access the chip.
+The essence of the design is a 'magic' string that opens a hole in the memory map to access the chip. This is done by reading the memory location where the chip is "hidden" 64 times.
+Doing this gives access to the 8 data registes for ready and writing the time/date parameters. Register 4 also contains the reset and Oscillator on/off functions.
 
+<img width="533" height="743" alt="image" src="https://github.com/user-attachments/assets/a76a7050-919c-47e3-b37d-2e4ab82cce89" />
+<img width="450" height="883" alt="image" src="https://github.com/user-attachments/assets/a02c45de-2d7b-4350-a423-e0fda4b3dabc" />
 
-<img width="836" alt="image" src="https://github.com/user-attachments/assets/e6079cd3-2ed4-4b55-bd4b-0e451379a583" />
-
-This is implemented in the CLK4/CMD program. CLK4/CMD can check for existance of the clock. It can set time, date and day of the clock. And it can copy time and date from the clock to the sytem.
+All this is implemented in the CLK4/CMD program. CLK4/CMD can check for existance of the clock. It can set time, date and day of the clock. And it can copy time and date from the clock to the sytem.
 Furthermore the oscillator of the clock can be stopped, which saves battery power consumption.
 
 ### Copy file to image file for use with Gotek
