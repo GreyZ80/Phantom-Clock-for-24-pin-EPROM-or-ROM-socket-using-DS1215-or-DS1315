@@ -36,7 +36,7 @@ For general info look here: [Smart Watch for TRS-80](http://www.trs-80.org/the-s
 
 
 >[!important]
->When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, or from RAM memory not masked by the ROM or just execute as a CMD file. The program added for the Model II is intended to be used under LS-DOS 6.3.\
+>When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, or from RAM memory not masked by the ROM or just execute as a CMD file. The program added for the Model II is intended to be used under LS-DOS 6.3.
 
 
 <img width="368" height="286" alt="image" src="https://github.com/user-attachments/assets/37fd1c71-3e51-4567-8ecf-328b5c2be5e4" />         
@@ -77,8 +77,8 @@ An angled header is used for connection of the back-up battery. Of course direct
 Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default the 2 pins of the jumper are connected by a bridge. When using a 2732 break the bridge and connect pin 1 to a wire running to the select (external A11 source) for the upper 16K address space of the Eprom.
 
 <img width="300"  alt="Phantom 3D" src="https://github.com/user-attachments/assets/2a1b5b65-4790-4255-b56e-8ebb8b457758" />
-<img width="300"  alt="Phantom Front Side" src="https://github.com/user-attachments/assets/e43e138a-83f8-4dc2-a2c7-56bdc72916e0" />
-<img width="300"  alt="Phantom Back Side" src="https://github.com/user-attachments/assets/514450f6-2465-4959-bed1-836496d30079" />
+<img width="263"  alt="Phantom Front Side" src="https://github.com/user-attachments/assets/e43e138a-83f8-4dc2-a2c7-56bdc72916e0" />
+<img width="263"  alt="Phantom Back Side" src="https://github.com/user-attachments/assets/514450f6-2465-4959-bed1-836496d30079" />
 
 ### BOM (2K or 4K)
 The board only supports a 24 pin (E)PROM or ROM.
