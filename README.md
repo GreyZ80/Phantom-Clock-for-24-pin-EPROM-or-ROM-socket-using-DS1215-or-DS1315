@@ -24,11 +24,11 @@ This means that the software for the Smart Watch can also be used for this board
 - CLK4    -  For Model 4 and 4P under TRSDOS 6.x and LS-DOS 6.x
 
 For model 1 see here:
-[Smartwatch sw for model 1](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
+[Smart Watch sw for model 1](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
 For model 3 see here:
-[Smartwatch sw for model 3](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
+[Smart Watch sw for model 3](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
 For model 4(P) see here: 
-[Smartwatch sw for model 4(P)](https://www.planetemu.net/index.php?section=roms&action=showrom&datSlug=tandy-radio-shack-trs-80-model-4&romSlug=smart-watch-19xx-dwayne-saylor-cmd&)
+[Smart Watch sw for model 4(P)](https://www.planetemu.net/index.php?section=roms&action=showrom&datSlug=tandy-radio-shack-trs-80-model-4&romSlug=smart-watch-19xx-dwayne-saylor-cmd&)
 
 ***
 
@@ -149,7 +149,7 @@ When the board is correctly seated, a first power test can be done. Without flop
 - Place the bracket that holds the boards in place.
 - Make the LS-DOS 6.3 floppy available for boot (real floppy or Gotek).
 - Power on the system. The system should boot into LS-DOS.
-- Use CLK2 to check if the SmartWatch can be found by the software
+- Use CLK2 to check if the Smart Watch can be found by the software
 - When everything is correct the message ** The SmartWatch is not set ** should be given.
 - Use CLK2 S hhmmssmmddyyw to set the time, date and weekday. No error should be given.
 - Then use CLK2 T to copy time and date from the clock to the system. Now TIME and DATE should respond with the previously set values.
