@@ -6,7 +6,7 @@ This **Private** (for the time being) repo is used for all information regarding
 When using BigTMon, the code is copied to RAM and executed. A TSR is used to update the time in the status line (HH:MM).\
 When running TRS-DOS the setting and reading of the time is handled by a little utility program (written in assembler).\
 New design: Use CAT28C16A and DS1315 in SOIC package, then all will fit in 24 pin socket footprint.\
-Next design: use ground plane! Larger font! Graphic on the front! Made the J4 bridge bare metal.
+Next design: use ground plane! Larger font! Graphic on the front! Make the J4 bridge bare metal.
 ***
 <img width="600" alt="Finished board" src="https://github.com/user-attachments/assets/abb936c1-b146-49c4-b076-ee6254830841" />
 
