@@ -5,7 +5,8 @@
 This **Private** (for the time being) repo is used for all information regarding the Dallas DS1315 chip.\
 When using BigTMon, the code is copied to RAM and executed. A TSR is used to update the time in the status line (HH:MM).\
 When running TRS-DOS the setting and reading of the time is handled by a little utility program (written in assembler).\
-New design: Use CAT28C16A and DS1315 in SOIC package, then all will fit in 24 pin socket footprint.
+New design: Use CAT28C16A and DS1315 in SOIC package, then all will fit in 24 pin socket footprint.\
+Next design: use ground plane!
 ***
 <img width="600" alt="Finished board" src="https://github.com/user-attachments/assets/abb936c1-b146-49c4-b076-ee6254830841" />
 
