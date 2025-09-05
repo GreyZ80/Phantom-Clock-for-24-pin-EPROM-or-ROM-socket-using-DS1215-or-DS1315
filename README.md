@@ -76,9 +76,10 @@ The crystal for the clock can be placed on the top side (inside of the clock chi
 An angled header is used for connection of the back-up battery. Of course direct soldering of two wires to the board can be done as well. Two wires (red and black) are soldered to the battery, after which it is encapsuled in a hear shrink.\
 Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default the 2 pins of the jumper are connected by a bridge. When using a 2732 break the bridge and connect pin 1 to a wire running to the select (external A11 source) for the upper 16K address space of the Eprom.
 
-<img width="300"  alt="Phantom 3D" src="https://github.com/user-attachments/assets/2a1b5b65-4790-4255-b56e-8ebb8b457758" />
+<xximg width="300"  alt="Phantom 3D" src="https://github.com/user-attachments/assets/2a1b5b65-4790-4255-b56e-8ebb8b457758" />
 <img width="300" src="https://github.com/user-attachments/assets/534c5de8-7063-4cd5-b5f0-20063a6e1d45" />
-
+<img width="300" src="https://github.com/user-attachments/assets/2d9c5cb6-5f30-44fd-be6f-d7c7ab1d9839" />
+<br>
 <img width="263"  alt="Phantom Front Side" src="https://github.com/user-attachments/assets/e43e138a-83f8-4dc2-a2c7-56bdc72916e0" />
 <img width="263"  alt="Phantom Back Side" src="https://github.com/user-attachments/assets/514450f6-2465-4959-bed1-836496d30079" />
 
@@ -96,7 +97,7 @@ Parts needed:
 - 2x  12 pin male row header with thin (0.4 mm) pins
 
 Optional parts:
-- 1x  24 pin machined or low profile socket for (E)EPROM or (original) ROM
+- 1x  24 pin machined or low profile socket for (E)EPROM or (original) ROM with 24 pin socket
 - 1x  16 pin machined or low profile socket for DS13125
 - 1x  2 pin angled row header for connection of the battery
 - 1x  2 pin short pin row header for J4, to enable A11 manipulation when using a 32Kb EPROM.
@@ -112,7 +113,7 @@ Mount the parts in the following order:
 - Crystal
 - 16 pin socket
   - Now the board can be tested for correct operation of the ROM.
-  - Place wire between pin 10 and pin 11 of the 16 pin socket
+  - **Place wire between pin 10 and pin 11 of the 16 pin socket**clk2 s 1621000905255
   - Place the board in the Model II
   - Power on the machine
   - It should boot normally.
@@ -121,6 +122,23 @@ Mount the parts in the following order:
 - Place the DS1315
 - Connect the battery
 - Test the complete assembly
+
+### Placing the clock in the Model II
+
+When using a socket for he ROM, the height become very critical. You might decide to move all boards one position to the left.\
+<img width="600" alt="ROM position" src="https://github.com/user-attachments/assets/fbc2b630-af86-4f19-a996-0df91745901e" />
+
+
+Steps to perform:
+- Disconnect the reset line and the flat cable for the serial ports.
+- Remove the bracket that holds the boards in place
+- Remove the CPU board (the rightmost board when looking from the backside) from the Model II
+- Place the board on an ESD safe surface
+- With an IC puller or a small flat blade screwdriver carefully pry IC **U11** (the ROM), which has 24 pins loose from the socket. Be very carefull and apply minimal force
+- Put the IC in aluminum foil until later use
+- Position the Clock PCB above the socket. Check the orientation; The DS1315 must be on the inside of the board (toward U19)
+The picture shows a close up of a board mounted that has the EEPROM solderen to the board, and has the DS1315 in a socket.
+Top view gives the impression that the board might create a short circuit. That is not the case. You can insert a piece of paper without any trouble.
 
 ### Software
 
