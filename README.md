@@ -87,6 +87,7 @@ Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default
 <img width="263"  alt="Phantom Front Side" src="https://github.com/user-attachments/assets/e43e138a-83f8-4dc2-a2c7-56bdc72916e0" />
 <img width="263"  alt="Phantom Back Side" src="https://github.com/user-attachments/assets/514450f6-2465-4959-bed1-836496d30079" />
 
+***
 ### BOM (2K or 4K)
 The board only supports a 24 pin (E)PROM or ROM.
 Default ROM size for the Big Tandy machines is 2Kbyte. However, they do support 4Kbyte.
