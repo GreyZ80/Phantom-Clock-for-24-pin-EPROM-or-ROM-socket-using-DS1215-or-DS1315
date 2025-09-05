@@ -14,7 +14,8 @@ New design: Use CAT28C16A and DS1315 in SOIC package, then all will fit in 24 pi
 This is a description of the little 3x3 cm board that I designed for my Model II. Also here is the executable for the Model II that sets and reads the clock chip.
 As most TRS-80 computer use at least one 24 pin socket I decided to use a 24 pin socket. A larger socket (28 pin) is beyond the scope of this project.\
 The board creates the possibility to combine a DS1315 with the existing boot ROM.\
-The DS1315 is the chip that is used in the DS1216 Smart Watch DIP sockets.
+The DS1315 is the chip that is used in the DS1216 Smart Watch DIP sockets. Buy the DS1315 chip from a trusted source. Or accept the risk of a "no-good" chip. After testing 15 chips, I found 1 that did not work.\
+The broken DS1315 resulted in or in a partially garbled boot screen, which is the same as when no chip is mounted.
 
 ***
 This means that the software for the Smart Watch can also be used for this board. **Duane M. Saylor** wrote software for Model 1, 3 and 4(P).
@@ -144,7 +145,7 @@ Using the TRS80GP emulator, the CLK4/CMD faile can be copied to an .hfe image fi
 - Close the emulator. This will update the LS-DOS system disk image file.
 - Now take the USB stick and insert it in the Gotek.
 - Boot your M2 and check the directory of 0: for CLK4/CMD
-- Type CLK4 S 1234000901251 to set the time and date of the clock
+- Type CLK4 S 1234000901251 to set the time and date of the clock to 12:34:00 09/01/25 Sunday
 - type CLK4 to verify.
 - turn power off for the Model II. The clock will now keep its time using the battery
 - After 5 minutes, power on the computer
