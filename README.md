@@ -15,26 +15,26 @@ Next design: use ground plane! Larger font! Graphic on the front! Made the J4 br
 This is a description of the little 3x3 cm board that I designed for my Model II. Also here is the executable for the Model II that sets and reads the clock chip.
 As most TRS-80 computers use at least one 24 pin socket I decided to use a 24 pin socket. A larger socket (28 pin) is beyond the scope of this project.\
 The board creates the possibility to combine a DS1315 with the existing boot ROM.\
-The DS1315 is the chip that is used in the DS1216 Smart Watch DIP sockets. Buy the DS1315 chip from a trusted source. Or accept the risk of a "no-good" chip. After testing 15 chips, I found 1 that did not work.\
+The DS1315 is the chip that is used in the DS1216 SmartWatch DIP sockets. Buy the DS1315 chip from a trusted source. Or accept the risk of a "no-good" chip. After testing 15 chips, I found 1 that did not work.\
 The broken DS1315 resulted in a partially garbled boot screen, which is the same as when no chip is mounted on the little board.
 
 ***
-This means that the software for the Smart Watch can also be used for this board. Duane M. Saylor wrote software for Model 1, 3 and 4(P). They can be found via these links (September 2025). Use at your own risk.
+This means that the software for the SmartWatch can also be used for this board. Duane M. Saylor wrote software for Model 1, 3 and 4(P). They can be found via these links (September 2025). Use at your own risk.
 - CLK1    -  For Model I under LDOS 5.x.x
 - CLK3    -  For Model III, Model 4 and 4P under LDOS 5.x.x
 - CLK4    -  For Model 4 and 4P under TRSDOS 6.x and LS-DOS 6.x
 
 They can be found via the links below (September 2025).\
 For model 1 see here:
-[Smart Watch sw for model 1](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
+[SmartWatch sw for model 1](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
 For model 3 see here:
-[Smart Watch sw for model 3](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
+[SmartWatch sw for model 3](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
 For model 4(P) see here: 
-[Smart Watch sw for model 4(P)](https://www.planetemu.net/index.php?section=roms&action=showrom&datSlug=tandy-radio-shack-trs-80-model-4&romSlug=smart-watch-19xx-dwayne-saylor-cmd&)
+[SmartWatch sw for model 4(P)](https://www.planetemu.net/index.php?section=roms&action=showrom&datSlug=tandy-radio-shack-trs-80-model-4&romSlug=smart-watch-19xx-dwayne-saylor-cmd&)
 
 ***
 
-For general info look here: [Smart Watch for TRS-80](http://www.trs-80.org/the-smartwatch.html)
+For general info look here: [SmartWatch for TRS-80](http://www.trs-80.org/the-smartwatch.html)
 
 
 >[!important]
@@ -155,7 +155,7 @@ When the board is correctly seated, a first power test can be done. Without flop
 - Place the bracket that holds the boards in place.
 - Make the LS-DOS 6.3 floppy available for boot (real floppy or Gotek).
 - Power on the system. The system should boot into LS-DOS.
-- Use CLK2 to check if the Smart Watch can be found by the software
+- Use CLK2 to check if the SmartWatch can be found by the software
 - When everything is correct the message ** The SmartWatch is not set ** should be given.
 - Use CLK2 S hhmmssmmddyyw to set the time, date and weekday. No error should be given.
 - Then use CLK2 T to copy time and date from the clock to the system. Now TIME and DATE should respond with the previously set values.
