@@ -125,8 +125,8 @@ Mount the parts in the following order:
 
 ### Placing the clock in the Model II
 
-When using a socket for he ROM, the height become very critical. You might decide to move all boards one position to the left.\
-<img width="600" alt="ROM position" src="https://github.com/user-attachments/assets/fbc2b630-af86-4f19-a996-0df91745901e" />
+When using a socket for the ROM, the height become very critical. You might decide to move all boards one position to the left.\
+<img width="600" alt="ROM position" src="https://github.com/user-attachments/assets/e5640073-c3a8-4e83-add9-e6b49d775eda" />
 
 
 Steps to perform:
@@ -134,9 +134,9 @@ Steps to perform:
 - Remove the bracket that holds the boards in place
 - Remove the CPU board (the rightmost board when looking from the backside) from the Model II
 - Place the board on an ESD safe surface
-- With an IC puller or a small flat blade screwdriver carefully pry IC **U11** (the ROM), which has 24 pins loose from the socket. Be very carefull and apply minimal force
+- With an IC puller or a small flat blade screwdriver carefully pry IC **U11** (the ROM which has 24 pins) loose from the socket. Be very carefull and apply minimal force
 - Put the IC in aluminum foil until later use
-- Position the Clock PCB above the socket. Check the orientation; The DS1315 must be on the inside of the board (toward U19)
+- Position the Clock PCB above the socket (red line in the above drawing). Check the orientation; The DS1315 must be on the inside of the board (toward U19)
 The picture shows a close up of a board mounted that has the EEPROM solderen to the board, and has the DS1315 in a socket.
 Top view gives the impression that the board might create a short circuit. That is not the case. You can insert a piece of paper without any trouble.
 
