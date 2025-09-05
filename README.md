@@ -143,7 +143,7 @@ Steps to perform:
 - Make sure the battery is not connected to the board
 - Position the Clock board above the socket (red line in the above drawing). Check the orientation; The DS1315 must be on the inside of the board (toward U19). Make sure all pins are aligned.
 
-<img width="200" alt="ROM position" src="https://github.com/user-attachments/assets/b84c0e3c-9432-4e2a-9507-bbf9766cd408" /> <BR>
+<img width="400" alt="ROM position" src="https://github.com/user-attachments/assets/b84c0e3c-9432-4e2a-9507-bbf9766cd408" /> <BR>
 - Now gentle push the board down. The board should remain level.
 - Check if a piece of paper can move freely between the board and U19.
 - Connect the battery. Pay attention to the plus and minus connections.
