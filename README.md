@@ -176,11 +176,11 @@ Using the TRS80GP emulator, the CLK4/CMD file can be copied to an .hfe image fil
 - Copy the CLK4.CMD file the folder where trs80gp is stored
 - create a USB stick with LS-DOS system image file in .hfe format.
 - Start the emulator in Model II model with frehd and hx options: trs80gp -m2 -frehd -hx
-- load the LS-DOS system disk image in drive :0.
-- Load the LS-DOS util disk image in drive :1. This disk contains the IMPORT2/CMD program
+- load the LS-DOS system disk image on the USB stick in drive :0. (Do not use the TRS80GP internal LS-DOS system disk image)
+- Load the TRS80GP internal LS-DOS util disk image in drive :1. This disk contains the IMPORT2/CMD program
 - Type: Import2 clk4.cmd clk4/cmd
 - The file will be copied to the LS-DOS system disk.
 - Type DIR to verify
-- Close the emulator. This will update the LS-DOS system disk image file. The CLK2/CMD file in now in the image file.
+- Close the emulator. This will update the LS-DOS system disk image file on the USB stick. The CLK2/CMD file in now in the image file ready for use with a Gotek.
 
 ***
