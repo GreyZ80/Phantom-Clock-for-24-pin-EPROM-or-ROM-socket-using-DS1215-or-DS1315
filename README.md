@@ -1,4 +1,4 @@
-# Phantom clock for the TRS-80 Model II (and others)
+# Phantom clock for the TRS-80 Model II (and other)
 
 ************************************
 **To be removed**\
@@ -13,13 +13,13 @@ Next design: use ground plane! Larger font! Graphic on the front! Made the J4 br
 ***
 
 This is a description of the little 3x3 cm board that I designed for my Model II. Also here is the executable for the Model II that sets and reads the clock chip.
-As most TRS-80 computer use at least one 24 pin socket I decided to use a 24 pin socket. A larger socket (28 pin) is beyond the scope of this project.\
+As most TRS-80 computers use at least one 24 pin socket I decided to use a 24 pin socket. A larger socket (28 pin) is beyond the scope of this project.\
 The board creates the possibility to combine a DS1315 with the existing boot ROM.\
 The DS1315 is the chip that is used in the DS1216 Smart Watch DIP sockets. Buy the DS1315 chip from a trusted source. Or accept the risk of a "no-good" chip. After testing 15 chips, I found 1 that did not work.\
 The broken DS1315 resulted in a partially garbled boot screen, which is the same as when no chip is mounted on the little board.
 
 ***
-This means that the software for the Smart Watch can also be used for this board. Duane M. Saylor wrote software for Model 1, 3 and 4(P). They can be found via these links (September 2025).
+This means that the software for the Smart Watch can also be used for this board. Duane M. Saylor wrote software for Model 1, 3 and 4(P). They can be found via these links (September 2025). Use at your own risk.
 - CLK1    -  For Model I under LDOS 5.x.x
 - CLK3    -  For Model III, Model 4 and 4P under LDOS 5.x.x
 - CLK4    -  For Model 4 and 4P under TRSDOS 6.x and LS-DOS 6.x
@@ -179,7 +179,7 @@ Furthermore the oscillator of the clock can be stopped, which saves battery powe
 ***
 ### Copy file to image file for use with Gotek
 
-Using the TRS80GP emulator, the CLK4/CMD faile can be copied to an .hfe image file.
+Using the TRS80GP emulator, the CLK4/CMD file can be copied to an .hfe image file.
 - Copy the CLK4.CMD file the folder where trs80gp is stored
 - create a USB stick with LS-DOS system image file in .hfe format.
 - Start the emulator in Model II model with frehd and hx options: trs80gp -m2 -frehd -hx
@@ -188,13 +188,6 @@ Using the TRS80GP emulator, the CLK4/CMD faile can be copied to an .hfe image fi
 - Type: Import2 clk4.cmd clk4/cmd
 - The file will be copied to the LS-DOS system disk.
 - Type DIR to verify
-- Close the emulator. This will update the LS-DOS system disk image file.
-- Now take the USB stick and insert it in the Gotek.
-- Boot your M2 and check the directory of 0: for CLK4/CMD
-- Type CLK4 S 1234000901251 to set the time and date of the clock to 12:34:00 09/01/25 Sunday
-- type CLK4 to verify.
-- turn power off for the Model II. The clock will now keep its time using the battery
-- After 5 minutes, power on the computer
-- Check time in the chip by typing CLK4. The time should be valid and have advanced by 5 minutes
+- Close the emulator. This will update the LS-DOS system disk image file. The CLK2/CMD file in now in the image file.
 
 ***
