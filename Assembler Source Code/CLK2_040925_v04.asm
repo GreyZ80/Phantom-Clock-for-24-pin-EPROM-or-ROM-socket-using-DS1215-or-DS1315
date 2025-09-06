@@ -1,18 +1,6 @@
 ; V04
 ;4/9/25   22:00
-;
-;  This version does the following:
-;
-;- CLK24 S .... (Setting of the clock) works. However, exit to DOS crashes and BOOTs :(
-;- Detection of the clock, when once set (checked by looking at the BCD values @ 584F)
-;- CLK24 Detects the clock when it is set
-;- CLK24 O (Clock off) works. After stopping, CLK24 reports that the clock is not set. The clock needs to be set again.
-;- CLK24 T (copy clock time to sw clock) results in error 2BH, but does copy the date & time to memory
-
-;  Year before 79 is 21st century. 79~99 is 20th century. Model II was introduced in 1979.
-
-
-;########################################################################
+clk2;########################################################################
 ;#
 ;#	CLK2/CMD
 ;#	For setting and reading Dallas Semiconductor DS 1216E Smart Watch
@@ -168,7 +156,7 @@ SETTIM
 	LD	A,(HL)		;Days
 	INC	HL
 	CALL	ASCBIN		;Convert ASCII to Binary
-	CP	7+1
+	CP	7+1				;
 	JP	NC,HELP
 	OR	RSTPIN		;Ignore the reset pin (Pin #1)
 	LD	(DAY),A
@@ -700,4 +688,5 @@ TIMSTR$	DC	128,'S'
 STACK$	DS	2
 LSTADR	EQU	$
 	END	START
+
 
