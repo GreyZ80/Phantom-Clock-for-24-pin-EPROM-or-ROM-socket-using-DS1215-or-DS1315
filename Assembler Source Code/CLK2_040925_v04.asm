@@ -1,5 +1,5 @@
-; V03
-;3/9/25   22:00
+; V04
+;4/9/25   22:00
 ;
 ;  This version does the following:
 ;
@@ -9,30 +9,36 @@
 ;- CLK24 O (Clock off) works. After stopping, CLK24 reports that the clock is not set. The clock needs to be set again.
 ;- CLK24 T (copy clock time to sw clock) results in error 2BH, but does copy the date & time to memory
 
-;changes v02 to v03
-
-;Removed all Model 4 references
-;Changed all clk24 into clk2
-;Put instructions behind commandline parameter H, ? or -?
-;Problem fixed. Was caused by incorrect exit.
-;Millenium bug fixed. Year before 79 is 21st century. 79~99 is 20th century. Model II was introduced in 1979.
+;  Year before 79 is 21st century. 79~99 is 20th century. Model II was introduced in 1979.
 
 
 ;########################################################################
-;#									#
-;#	CLK2/CMD							#	
-;#	For setting and reading SmartWatch and Phantom Clock		#
-;#	For use with Dallas Semiconductor DS 1216E Smart Watch		#
-;#	and DS1315 Phantom Clock Chip.					#
-;#      Target system:							#
-;#	TRS-80 Model II (and similar) under LS-DOS6.3			#
-;#									#
+;#
+;#	CLK2/CMD
+;#	For setting and reading Dallas Semiconductor DS 1216E Smart Watch
+;#	and DS1315 Phantom Clock Chip.
+;#  Target system: TRS-80 Model II (and similar) under LS-DOS6.3
+;#
 ;########################################################################
-;    (( based on work by Duane S Saylor for Model 1, III and 4 ))
+; Compiled with ZMAC     (http://48k.ca/zmac.html
+;########################################################################
+;	Syntax:
+;	CLK2<CR>	 will show time and date when set
+;	CLK2 T<CR>	 will copy the Clock time and date to the system time and date
+;	CLK2 O<CR>	 turns the Clock off, for long term storage
+;	CLK2 S hhmmssMMDDYYdm<CR> will set the time, date and day of the week
+;	Where:	hh=Hours (00-23/00-12), mm=Minutes (00-59), ss=Seconds (00-59)
+;			MM=Months (01-12), DD=Day of month (01-31), YY=Year (00-99)
+;			d=Day of week (1=Sunday, 7=Saturday)
+;			m=Mode: "A" = AM, "P" = PM, omit for 24 hour format.',CR
+;			Year >= 79 results in 19xx
+;			Year <79 results in 20xx
+;
 ;########################################################################
 ;
-;	'<Copyright (C) 1987 by Duane M. Saylor>'
-;	'<Copyright (C) 2025 by Ruud Broers for Model II support'
+;	'Copyright (C) 1987 by Duane M. Saylor'
+;	'Copyright (C) 2025 by Ruud Broers for Model II support'
+;   'Based on work by Duane S Saylor for Model 1, III and 4(P)
 ;
 TRUE	EQU	-1
 FALSE	EQU	0
@@ -694,3 +700,4 @@ TIMSTR$	DC	128,'S'
 STACK$	DS	2
 LSTADR	EQU	$
 	END	START
+
