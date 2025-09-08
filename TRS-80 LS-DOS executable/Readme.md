@@ -9,4 +9,6 @@ System time and date are set by CLK2 T, which was placed as AUTO sequence by:
 When CLK2 reports that the SmartWatch is not set use:
 - clk2 s 1033000901251   (Setting time and date to 10:33:00 09/01/25 Sunday)
 
-When CLK2 reports that the SmartWatch is not found, you will have the add it to the system.
+When CLK2 reports that the SmartWatch is not found, you will have the the SmartWatch it to your system.
+
+The binary files for the known Boot ROMs for Model II and 12 are present. Advice is to take the 9733 version as that is the latest.
