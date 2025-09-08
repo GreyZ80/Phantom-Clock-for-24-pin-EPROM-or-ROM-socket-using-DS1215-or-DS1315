@@ -105,8 +105,8 @@ First place the two row headers. They are inserted from the **solder** side of t
 When height of the assembly is an issue (which it is in a model II), you have to solder the EPROM directly on the board. Note that the EPROM can stil be programmed when it is fixed to the board. 
 
 >[!important]
->**On board programming.**
->Remove the backup battery!
+>**On board programming.**\
+>Disconnect the backup battery.\
 >Place a wire bridge connecting pin 10 and 11.
 >When the DS1315 is soldered in, connect pins 10 and 11 using 2 test clips.
 
