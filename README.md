@@ -31,7 +31,7 @@ For general info look here: [SmartWatch for TRS-80](http://www.trs-80.org/the-sm
 
 
 >[!important]
->When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, from RAM memory not masked by the ROM or just executed as a CMD file. The program added for the Model II is intended to be used under LS-DOS 6.3.
+>When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, from RAM memory not masked by the ROM or just executed as a CMD file. The program added for the Model II (CLK2/CMD) is intended to be used under LS-DOS 6.3.
 
 
 <img width="368" height="286" alt="image" src="https://github.com/user-attachments/assets/37fd1c71-3e51-4567-8ecf-328b5c2be5e4" />         
@@ -44,7 +44,7 @@ For general info look here: [SmartWatch for TRS-80](http://www.trs-80.org/the-sm
 
 <img width="507" height="484" alt="image" src="https://github.com/user-attachments/assets/044b9230-0a7e-49fb-bd8d-86c81261e481" />
 
-The datasheet of the DS1315 shows a design for a RAM and a ROM configuration. The latter is used. My design uses only 1 backup battery (type CR2032).\
+The datasheet of the DS1315 shows a design for a RAM and a ROM configuration. The latter is used. My design uses only 1 backup battery (type CR2032 or similar).\
 Data line used (Q) connects to A0. This signal is used for writing data.\
 Data line (D) is connected to D0. This signal is used while reading data.\
 The board is layed out for a 24 Pin (E)PROM.
@@ -103,7 +103,15 @@ Optional parts:
 ***
 ### PCB Assembly
 First place the two row headers. They are inserted from the **solder** side of the board. Before placing them cut of (almost) all of the thicker pin. This will result in a flat top surface of the board. Solder them from the top side of the board.\
-When height of the assembly is an issue (which it is in a model II), you have to solder the EPROM directly on the board. Note that the EPROM can stil be programmed when it is fixed to the board. For looks you can decide to use an EEPROM instead of a UV eraseable. Note that 32Kbit (4Kx8) EEPROMs do not exist. When testing the EPROM on the board without the DS1315 mounted, pins 10 (CEO*) and 11 (CEI*) of the DS1315 socket need to be bridged.
+When height of the assembly is an issue (which it is in a model II), you have to solder the EPROM directly on the board. Note that the EPROM can stil be programmed when it is fixed to the board. 
+
+>[!important]
+>**On board programming.**
+>Remove the backup battery!
+>Place a wire bridge connecting pin 10 and 11.
+>When the DS1315 is soldered in, connect pins 10 and 11 using 2 test clips.
+
+For looks you can decide to use an EEPROM instead of a UV eraseable. Note that 32Kbit (4Kx8) EEPROMs do not exist. When testing the EPROM on the board without the DS1315 mounted, pins 10 (CEO*) and 11 (CEI*) of the DS1315 socket need to be bridged.
 If you decide to use a socket for the DS1315, the crystal can be mounted on the component side within the socket, under the chip./
 When soldering the DS1315 directly to the board, the crystal has to be placed on the underside of the board **before** you solder the DS1315 in place. Use some hot glue to fixate the crystal.\
 Mount the parts in the following order:
@@ -184,3 +192,10 @@ Using the TRS80GP emulator, the CLK4/CMD file can be copied to an .hfe image fil
 - Close the emulator. This will update the LS-DOS system disk image file on the USB stick. The CLK2/CMD file in now in the image file ready for use with a Gotek.
 
 ***
+### Problem solving
+- When the back-up battery is not connected, or has insufficient voltage, the Phantom Clock will not be detected.
+- When the machine continues to show a black screen, power off and check the content of the (E)EPROM. I have seen cases where the content of the EEPROM get corrupted preventing the machine to boot correctly.
+- When the machine shows a garbled boot screen, check if the DS1315 is placed (or a wire bridge). Pins 10 and 11 control reading of the (E)EPROM and of the DS1315.
+
+  
+
