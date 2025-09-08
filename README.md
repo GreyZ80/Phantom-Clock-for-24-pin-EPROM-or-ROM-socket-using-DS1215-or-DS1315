@@ -174,7 +174,7 @@ Doing this gives access to the 8 data registers for ready and writing the time/d
 <img width="450" height="883" alt="image" src="https://github.com/user-attachments/assets/a02c45de-2d7b-4350-a423-e0fda4b3dabc" />
 
 All this is implemented in the CLK4/CMD program. CLK4/CMD can check for existance of the clock. It can set time, date and weekday of the clock. And it can copy time and date from the clock to the sytem.
-Furthermore the oscillator of the clock can be stopped, which saves battery power consumption. This also stops the clock.
+Furthermore the oscillator of the clock can be stopped, which saves battery power consumption. This also stops the clock. The oscillator is started by setting the clock again.
 
 ***
 ### Copy file to image file for use with Gotek
@@ -193,7 +193,7 @@ Using the TRS80GP emulator, the CLK4/CMD file can be copied to an .hfe image fil
 ***
 ### Problem solving
 - When the back-up battery is not connected, or has insufficient voltage, the Phantom Clock will not be detected.
-- When the machine continues to show a black screen, power off and check the content of the (E)EPROM. I have seen cases where the content of the EEPROM get corrupted preventing the machine to boot correctly.
+- When, after power on, the machine continues to show a black screen, power off and check the content of the (E)EPROM. I have seen cases where the content of the EEPROM gets corrupted preventing the machine from booting correctly.
 - When the machine shows a garbled boot screen, check if the DS1315 is placed (or a wire bridge). Pins 10 and 11 control reading of the (E)EPROM and of the DS1315.
 
   
