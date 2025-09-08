@@ -70,10 +70,9 @@ When soldering the header, fixate them using a breadbord or a 24 pin machined so
 
 The crystal for the clock can be placed on the top side (inside of the clock chip socket), or on the backside. The top side is preferred, but pay attention to the socket bridges. Verify before soldering.
 
-An angled header is used for connection of the back-up battery. Of course direct soldering of two wires to the board can be done as well. Two wires (red and black) are soldered to the battery, after which it is encapsuled in a heat shrink.\
+An angled header is used for connection of the back-up battery. Direct soldering of two wires to the board is not advised as is complicates the power off of the back-up battery. Two wires (red and black) are soldered to the battery, after which it is encapsuled in a heat shrink.\
 Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default the 2 pins of the jumper are connected by a bridge. When using a 2732 break the bridge and connect pin 1 to a wire running to the select (external A11 source) for the upper 16K address space of the Eprom.
 
-<xximg width="300"  alt="Phantom 3D" src="https://github.com/user-attachments/assets/2a1b5b65-4790-4255-b56e-8ebb8b457758" />
 <img width="300" src="https://github.com/user-attachments/assets/534c5de8-7063-4cd5-b5f0-20063a6e1d45" />
 <img width="300" src="https://github.com/user-attachments/assets/2d9c5cb6-5f30-44fd-be6f-d7c7ab1d9839" />
 <br>
