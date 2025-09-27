@@ -44,7 +44,7 @@ For general info look here: [SmartWatch for TRS-80](http://www.trs-80.org/the-sm
 
 <img width="507" height="484" alt="image" src="https://github.com/user-attachments/assets/044b9230-0a7e-49fb-bd8d-86c81261e481" />
 
-The datasheet of the DS1315 shows a design for a RAM and a ROM configuration. The latter is used. My design uses only 1 backup battery (type CR2032 or similar).\
+The datasheet of the DS1315 shows a design for a RAM and a ROM configuration. The latter is used. My design uses only 1 backup battery (type CR2032, CR1216 or similar).\
 Data line used (Q) connects to A0. This signal is used for writing data.\
 Data line (D) is connected to D0. This signal is used while reading data.\
 The board is layed out for a 24 Pin (E)PROM.
