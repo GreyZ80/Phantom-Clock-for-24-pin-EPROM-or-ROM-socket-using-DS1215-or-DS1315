@@ -16,4 +16,4 @@ You can turn off the auto execution by typing:
 When CLK2 reports that the SmartWatch is not set use:
 - clk2 s 1033000901251   (Setting time and date to 10:33:00 09/01/25 Sunday)
 
-When CLK2 reports that the SmartWatch is not found, you will have the the SmartWatch to your system.
+When CLK2 reports that the SmartWatch is not found, you will have to the SmartWatch to your system.
