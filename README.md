@@ -7,23 +7,22 @@
 
 This is a description of the little 3x3 cm board that I designed for my **TRS-80 Model II**. Also here is the executable for the Model II that sets and reads the clock chip.
 This means I used a 24 pin socket, compatible with 2716 and 2732 EPROM. A larger socket (28 pin) is beyond the scope of this project.\
-The board creates the possibility to combine a DS1315 with the existing boot ROM.\
+The board creates the possibility to combine a DS1315 with the existing boot ROM in U11.\
 The DS1315 is the chip that is used in the DS1216 SmartWatch DIP sockets. Buy the DS1315 chip from a trusted source. Or accept the risk of a "no-good" chip. After testing 15 chips, I found 1 that did not work.\
 The broken DS1315 resulted in a partially garbled boot screen, which is the same as when no chip is mounted on the little board.
 
+For the Model 1 the socket to place the board is Z34. For the model 3 use socket Z106 (ROM C). For the NGA Model 4 use socket U4 (ROM C).
+
 >[!important]
->The current board design is NOT suitable for the TRS-80 Model 4 without hardware modification. The Model 4 sockets are compatible with 68764/68766 EPROMs and lack the OE* signal. 
+>The current board design is NOT suitable for the TRS-80 Gate Array (GA) Model 4 without hardware modification. The GA Model 4 sockets are compatible with 68764/68766 EPROMs and lack the OE* signal. 
 >Also the Model 4P poses a problem, as the layout of the 4P socket is for the TMS2532 4Kbyte EPROM, which differs from 2732 on pins 18, 20 and 21.
 
-
-
 ***
-This means that the software for the SmartWatch can also be used for this board. Duane M. Saylor wrote software for Model 1, 3 and 4(P). They can be found via these links (September 2025). Use at your own risk.
+Duane M. Saylor wrote software for Model 1, 3 and 4(P). This can be found via these links (September 2025). Use at your own risk.
 - CLK1    -  For Model I under LDOS 5.x.x
 - CLK3    -  For Model III, Model 4 and 4P under LDOS 5.x.x
 - CLK4    -  For Model 4 and 4P under TRSDOS 6.x and LS-DOS 6.x
 
-They can be found via the links below (September 2025).\
 For model 1 see here:
 [SmartWatch sw for model 1](https://www.planetemu.net/rom/tandy-radio-shack-trs-80-model-1/smart-watch-1987-dwayne-saylor-cmd)\
 For model 3 see here:
