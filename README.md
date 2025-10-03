@@ -6,14 +6,14 @@
 ***
 
 This is a description of the little 3x3 cm board that I designed for my **TRS-80 Model II**. Also here is the executable for the Model II that sets and reads the clock chip.
-As most TRS-80 computers use at least one 24 pin socket I decided to use a 24 pin socket. A larger socket (28 pin) is beyond the scope of this project.\
+This means I used a 24 pin socket, compatible with 2716 and 2732 EPROM. A larger socket (28 pin) is beyond the scope of this project.\
 The board creates the possibility to combine a DS1315 with the existing boot ROM.\
 The DS1315 is the chip that is used in the DS1216 SmartWatch DIP sockets. Buy the DS1315 chip from a trusted source. Or accept the risk of a "no-good" chip. After testing 15 chips, I found 1 that did not work.\
 The broken DS1315 resulted in a partially garbled boot screen, which is the same as when no chip is mounted on the little board.
 
 >[!important]
->The board supports ROM sockets designed for ROM chips compatible with 2716 or 2732 EPROM.\
->The current board design is NOT suitable for the TRS-80 Model 4P, as the layout of the 4P socket is for the TMS2532 4Kbyte EPROM.
+>The current board design is NOT suitable for the TRS-80 Model 4 without hardware modification. The Model 4 sockets are compatible with 68764/68766 EPROMs and lack the OE* signal. 
+>Also the Model 4P poses a problem, as the layout of the 4P socket is for the TMS2532 4Kbyte EPROM, which differs from 2732 on pins 18, 20 and 21.
 
 
 
