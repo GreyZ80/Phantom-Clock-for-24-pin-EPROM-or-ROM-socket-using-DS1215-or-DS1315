@@ -59,7 +59,6 @@ Supported (E)PROMs:
 - 2716  (2Kx8) EPROM for copies of Boot ROM
 - 28C16 (2Kx8) EEPROM for copies of Boot ROM
 - 2732  (4Kx8) used for custom software (like BigTMon) that needs more space
-- MCM76866  (8Kx8) can be used with modifications to the CPU board (Not tested)
 
 J4 in the schematic brings out A11 of the EPROM. This is only needed when a 4K EPROM is used in the Model II (because otherwise only the upper part of the 4K is accessable.)
 
