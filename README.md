@@ -62,6 +62,9 @@ Supported (E)PROMs:
 
 J4 in the schematic brings out A11 of the EPROM. This is only needed when a 4K EPROM is used in the Model II (because otherwise only the upper part of the 4K is accessable.)
 
+<img width="812" height="817" alt="Schematic Phantom Clock" src="https://github.com/user-attachments/assets/3fa7a053-98c9-4a9f-883e-51e03c220bf2" />
+
+
 ***
 ### PCB
 
