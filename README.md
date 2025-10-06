@@ -36,7 +36,7 @@ For general info look here: [SmartWatch for TRS-80](http://www.trs-80.org/the-sm
 
 
 >[!important]
->When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the code must run from another ROM in the system, from RAM memory not masked by the ROM or just executed as a CMD file. The program added for the Model II (CLK2/CMD) is intended to be used under LS-DOS 6.3.
+>When setting or reading the clock, the content of the ROM can **not** be accessed. This means that the software must run from another ROM in the system, from RAM memory not masked by the ROM or just executed as a CMD file. The program added for the Model II (CLK2/CMD) is intended to be used under LS-DOS 6.3.
 
 
 <img width="368" height="286" alt="image" src="https://github.com/user-attachments/assets/37fd1c71-3e51-4567-8ecf-328b5c2be5e4" />         
