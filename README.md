@@ -76,7 +76,10 @@ When soldering the header, fixate them using a breadbord or a 24 pin machined so
 
 The crystal for the clock can be placed on the top side (inside of the clock chip socket), or on the backside. The top side is preferred, but pay attention to the socket bridges. Verify before soldering.
 
-An angled header is used for connection of the back-up battery. Direct soldering of two wires to the board is not advised as is complicates the power off of the back-up battery. Two wires (red and black) are soldered to the battery, after which it is encapsuled in a heat shrink.\
+An angled header is used for connection of the back-up battery. Direct soldering of two wires to the board is not advised as is complicates the power off of the back-up battery. Two wires (red and black) are connected to the battery holder. 
+>[!caution]
+>Direct soldering to the battery is **not** advised, as the battery can overheat and explode.
+
 Jumper J4 adds the option of using a 4K Eprom (2732) in the Model II. By default the 2 pins of the jumper are connected by a bridge. When using a 2732 break the bridge and connect pin 1 to a wire running to the select (external A11 source) for the upper 16K address space of the Eprom.
 
 <img width="300" src="https://github.com/user-attachments/assets/534c5de8-7063-4cd5-b5f0-20063a6e1d45" />
@@ -96,13 +99,13 @@ Parts needed:
 - 1x  16Kb EEPROM (24 pin). e.g. CAT28C16A in PDIP 24 package)
 - 1x  DS1315 Clock IC
 - 1x  32.768 MHz crystal (small footprint)
-- 1x  CR2032 battery cell (3.2V) with 2 wires
+- 1x  CR2032 battery cell (3.2V) holder with 2 wires
 - 2x  12 pin male row header with thin (0.4 mm) pins
 
 Optional parts:
 - 1x  24 pin machined or low profile socket for (E)EPROM or (original) ROM with 24 pin socket
 - 1x  16 pin machined or low profile socket for DS13125
-- 1x  2 pin angled row header for connection of the battery
+- 1x  2 pin angled row header for connection of the battery holder
 - 1x  2 pin short pin row header for J4, to enable A11 manipulation when using a 32Kb EPROM.
 
 ***
@@ -130,7 +133,7 @@ Mount the parts in the following order:
   - Power on the machine
   - It should boot normally.
   - If not check, for proper orientation and seating. Check for solder problems.
-- When this works continue by placing the connector for the battery
+- When this works continue by placing the connector for the battery holder
 - Remove the wire and place the DS1315
 
 ***
